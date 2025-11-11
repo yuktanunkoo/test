@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@2.7.8/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app1">
+        <h1>First Vue Class</h1>
+        <p>{{message}}</p>
+        <p>Enter text</p>
+        <input v-model="message" />
+        <p>Calling method displayGreeting</p>
+        <p>{{displayGreeting()}}</p>
+    </div>
+
+    <div id="app2">
+        <h1>2nd view instance</h1>
+        <p>{{message}}</p>
+
+    </div>
+    
+    <script>
+        var app = new Vue({
+            el:"#app1",
+            data:{
+                message: "Welcome to vue",
+                greeting:"HELLO"
+            },
+            methods:{
+                displayGreeting(){
+                    return this.greeting;
+                }
+            }
+        });
+
+        var app = new Vue({
+            el:"#app2",
+            data:{
+                message: "Welcome to vue again"
+            }
+        });
+    </script>
+</body>
+</html>
